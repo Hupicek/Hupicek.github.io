@@ -66,6 +66,19 @@
                 alert("Zadejte platný text v Morseově abecedě.");
             }
         }
+         function addDot() {
+            document.getElementById("inputText").value += " . ";
+        }
+
+        function addDash() {
+            document.getElementById("inputText").value += " - ";
+        }
+
+        function removeLast() {
+            var inputText = document.getElementById("inputText").value.trim();
+            // Odebrání posledního znaku nebo mezery
+            document.getElementById("inputText").value = inputText.substring(0, inputText.lastIndexOf(" "));
+        }
 
         function morseToLetter(morseCode) {
             // Definice Morseovy abecedy
