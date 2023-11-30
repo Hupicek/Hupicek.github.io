@@ -20,6 +20,7 @@
             padding: 20px;
             background-color: rgba(255, 255, 255, 0.8); /* Průhledné bílé pozadí pro obsah */
             border-radius: 10px;
+            animation: fadeIn 1s ease-in-out; /* Animace vstupu */
         }
 
         input {
@@ -27,6 +28,7 @@
             margin: 10px;
             width: 80%;
             box-sizing: border-box;
+            transition: border 0.3s ease-in-out; /* Animace obrysu */
         }
 
         button {
@@ -37,22 +39,48 @@
             border-radius: 5px;
             cursor: pointer;
             margin: 5px;
+            transition: background-color 0.3s ease-in-out; /* Animace pozadí tlačítka */
         }
 
         button:hover {
             background-color: #45a049;
         }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes shake {
+            10%, 90% {
+                transform: translateX(-1px);
+            }
+            20%, 80% {
+                transform: translateX(2px);
+            }
+            30%, 50%, 70% {
+                transform: translateX(-4px);
+            }
+            40%, 60% {
+                transform: translateX(4px);
+            }
+        }
+
     </style>
 </head>
 <body>
     <div id="container">
-        <h1>Morse Code Converter</h1>
+        <h1 style="color: #333;">Morse Code Converter</h1>
         <input type="text" id="inputText" placeholder="Zadejte text v Morseově abecedě">
         <br>
         <button onclick="convertAndAlert()">Převést</button>
         <button onclick="addDot()">Přidat tečku</button>
         <button onclick="addDash()">Přidat čárku</button>
-        <button onclick="removeLast()">Odebrat poslední znak</button>
+        <button onclick="removeLast()" style="animation: shake 0.5s ease-in-out;">Odebrat poslední znak</button>
     </div>
 
     <script>
