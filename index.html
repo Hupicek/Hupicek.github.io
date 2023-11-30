@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morse Code Converter</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #00FFFF, #800080); /* Tyrkysová do purpurového gradientu */
+        }
+
+        #container {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8); /* Průhledné bílé pozadí pro obsah */
+            border-radius: 10px;
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px;
+            width: 80%;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Morse Code Converter</h1>
+        <input type="text" id="inputText" placeholder="Zadejte text v Morseově abecedě">
+        <br>
+        <button onclick="convertAndAlert()">Převést</button>
+    </div>
+
+    <script>
+        function convertAndAlert() {
+            var inputText = document.getElementById("inputText").value.trim();
+
+            // Regulární výraz pro kontrolu, zda je vstupní text ve formátu Morseovy abecedy
+            var morseRegex = /^[.-\s]+$/;
+
+            if (morseRegex.test(inputText)) {
+                // Převod Morseovy abecedy na písmeno
+                var convertedText = morseToLetter(inputText);
+                alert("Přeložený text: " + convertedText);
+            } else {
+                alert("Zadejte platný text v Morseově abecedě.");
+            }
+        }
+
+        function morseToLetter(morseCode) {
+            // Logika pro převod Morseovy abecedy na písmeno (implementujte podle potřeby)
+            // Příklad: https://www.codewars.com/kata/decode-the-morse-code/javascript
+        }
+    </script>
+</body>
+</html>
